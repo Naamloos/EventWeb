@@ -6,7 +6,8 @@ export default function SiteLayout({children} : PropsWithChildren)
         <div
             className="w-full min-h-screen"
             style={{
-                backgroundColor: "#E8EEF2"
+                backgroundColor: "#0D0D0D",
+                color: "#f0f0f0",
             }}
         >
             <header className="w-full p-2 text-center">
@@ -34,12 +35,14 @@ export default function SiteLayout({children} : PropsWithChildren)
             <main>
                 {children}
             </main>
-            <footer className="w-full p-2 text-center text-sm">
+            <footer className="w-full p-6 text-center text-sm">
                 <p>
                     <a
                         href={route('dashboard')}
-                        className="text-black cursor-default"
-                    >&copy;&nbsp;</a>
+                        className="text-white cursor-default hover:opacity-100 hover:text-white"
+                    >
+                        &copy;&nbsp;
+                    </a>
                     2024 Tanoshima Raves - Site by <a className="text-blue-900 hover:text-opacity-50" href="https://naamloos.dev/">Ryan</a>
                 </p>
             </footer>

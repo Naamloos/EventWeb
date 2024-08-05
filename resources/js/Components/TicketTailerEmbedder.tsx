@@ -23,7 +23,7 @@ export default function TicketTailerEmbedder({link} : {link?: string})
             >
                 <iframe
                     src={link}
-                    className="w-full pb-5 border-none"
+                    className="w-full pb-5 border-none opacity-80"
                     style={{
                         height: '70vh',
                     }}

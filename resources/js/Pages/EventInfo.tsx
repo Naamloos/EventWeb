@@ -3,6 +3,7 @@ import { EventInfoProps } from "@/types/props/EventInfoProps";
 import PlaceholderBanner from "@/../img/placeholder-banner.jpg";
 import TicketTailerEmbedder from "@/Components/TicketTailerEmbedder";
 import MapsEmbedComponent from "@/Components/MapsEmbedComponent";
+import Logo from "@/../img/logo.png";
 
 export default function Events(props : EventInfoProps) {
     return (
@@ -17,16 +18,16 @@ export default function Events(props : EventInfoProps) {
                     borderColor: "#6DC952",
                 }}
             >
-                {/* do somnething fancy with the text */}
-                <h1 className="text-5xl text-white font-bold">
-                    {props.event.name}
-                </h1>
+                <img src={Logo} alt="Tanoshima" className="h-full xl:h-5/6"/>
             </div>
 
             {/* show event info, wider box, nicer box, use all properties */}
             <div className="w-full text-center">
+                <h1 className="text-5xl text-white font-bold pb-6">
+                    {props.event.name}
+                </h1>
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left">
-                    <div className="w-full bg-black bg-opacity-5 mt-2 rounded-t">
+                    <div className="w-full bg-white bg-opacity-5 mt-2 rounded-t">
                         {/* two columns, image left, info right */}
                         <div className="p-5 h-full w-full">
                             <img
@@ -39,7 +40,7 @@ export default function Events(props : EventInfoProps) {
                                     href={"https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(props.event.location)}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="text-blue-900 hover:text-opacity-50"
+                                    className="text-blue-300 hover:text-opacity-50"
                                 >
                                     Google Maps
                                 </a>)

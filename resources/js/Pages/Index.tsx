@@ -3,6 +3,7 @@ import { IndexProps } from "@/types/props/IndexProps";
 import PlaceholderBanner from "@/../img/placeholder-banner.jpg";
 import InstagramComponent from "@/Components/InstagramComponent";
 import { Head } from "@inertiajs/react";
+import Logo from "@/../img/logo.png";
 
 export default function Index(props : IndexProps) {
     return (
@@ -16,12 +17,14 @@ export default function Index(props : IndexProps) {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     borderColor: "#6DC952",
+                    backgroundBlendMode: "darken",
+                    backgroundColor: "#AAA",
                 }}
             >
-                {/* do somnething fancy with the text */}
-                <h1 className="text-5xl text-white font-bold">
+                {/* <h1 className="text-5xl text-white font-bold">
                     Tanoshima
-                </h1>
+                </h1> */}
+                <img src={Logo} alt="Tanoshima" className="h-full xl:h-5/6"/>
             </div>
 
             {/* pretty info components */}
@@ -58,7 +61,7 @@ export default function Index(props : IndexProps) {
             {/* Instagram feed */}
             <div className="w-full text-center md:mb-6 m:0">
                 <div className="inline-block lg:w-2/4 sm:w-4/5 w-full">
-                    <InstagramComponent username="tanorave" height={400}/>
+                    <InstagramComponent username="tanorave" height={500}/>
                 </div>
             </div>
         </SiteLayout>
