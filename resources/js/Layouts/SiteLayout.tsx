@@ -7,7 +7,7 @@ export default function SiteLayout({children} : PropsWithChildren)
             className="w-full min-h-screen"
             style={{
                 backgroundColor: "#0D0D0D",
-                color: "#f0f0f0",
+                color: "#f0f0f0"
             }}
         >
             <header className="w-full p-2 text-center">

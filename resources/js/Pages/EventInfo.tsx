@@ -4,10 +4,12 @@ import PlaceholderBanner from "@/../img/placeholder-banner.jpg";
 import TicketTailerEmbedder from "@/Components/TicketTailerEmbedder";
 import MapsEmbedComponent from "@/Components/MapsEmbedComponent";
 import Logo from "@/../img/logo.png";
+import { Head } from "@inertiajs/react";
 
 export default function Events(props : EventInfoProps) {
     return (
         <SiteLayout>
+            <Head title={props.event.name}/>
             {/* banner, but small */}
             <div
                 className="w-full flex justify-center items-center h-40 border-t-2 border-b-2 shadow-xl mb-6"
