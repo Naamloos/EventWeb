@@ -33,7 +33,7 @@ export default function Events(props : ContactProps) {
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left">
                     <div className="w-full bg-white bg-opacity-5 rounded-t p-4">
                         {/* block of text about how to contact us */}
-                        You can contact us either by mailing to <a href={"mailto:"} className="text-blue-900 hover:text-opacity-50">our@mail.here</a> or by following us on our socials:
+                        You can contact us either by mailing to <a href={"mailto:"} className="hover:text-opacity-50">our@mail.here</a> or by following us on our socials:
                         {props.socials?.map((social) => (
                             <>
                                 <a

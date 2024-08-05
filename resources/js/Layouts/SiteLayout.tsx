@@ -1,5 +1,4 @@
 import { MouseEvent, PropsWithChildren, useState } from "react";
-import Konami from "react-konami-code";
 
 export default function SiteLayout({children} : PropsWithChildren)
 {
@@ -55,7 +54,7 @@ export default function SiteLayout({children} : PropsWithChildren)
                         >
                             &copy;&nbsp;
                         </a>
-                        2024 Tanoshima Raves - Site by <a className="text-blue-900 hover:text-opacity-50" href="https://naamloos.dev/">Ryan</a>
+                        2024 Tanoshima Raves - Site by <a className="hover:text-opacity-50" href="https://naamloos.dev/">Ryan</a>
                     </p>
                 </footer>
             </div>
