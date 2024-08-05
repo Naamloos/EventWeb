@@ -29,7 +29,7 @@ export default function Events(props : EventsProps) {
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left px-6">
                     {props.events?.map((event) => (
                         <a href={route('eventinfo', {id: event.id})}>
-                            <div className="w-full bg-white bg-opacity-5 my-2 rounded xl:h-40 h-52" key={event.id}>
+                            <div className="w-full bg-white bg-opacity-5 my-2 rounded xl:h-40 h-52 hover:opacity-75" key={event.id}>
                                 <div className="w-2/6 float-left inline-block h-full">
                                     <img
                                         src={event.image == ''? PlaceholderBanner : event.image}
@@ -38,13 +38,13 @@ export default function Events(props : EventsProps) {
                                     />
                                 </div>
                                 <div className="w-4/6 float-right p-5 h-full">
-                                    <h2 className="text-2xl font-bold">
+                                    <h2 className="text-2xl font-bold text-white">
                                         {event.name}
                                     </h2>
                                     <h3 className="text-l font-semibold">
                                         {new Date(event.starts_at).toLocaleDateString()} ({new Date(event.starts_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}) - {new Date(event.ends_at).toLocaleDateString()} ({new Date(event.ends_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})
                                     </h3>
-                                    <p>
+                                    <p className="text-white hover:text-white">
                                         {event.description}
                                     </p>
                                 </div>
