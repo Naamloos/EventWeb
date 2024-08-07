@@ -31,6 +31,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::put('/socials/new', 'addSocial')->name('socials.new');
             Route::get('/invite', 'invite')->name('invites');
             Route::post('/invite', 'makeInvite')->name('invites.new');
+            Route::get('/events/preview/{id}', 'viewEventAsAdmin')->name('events.preview');
         });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

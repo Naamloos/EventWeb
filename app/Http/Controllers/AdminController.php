@@ -74,6 +74,19 @@ class AdminController extends Controller
         return redirect()->route('events.edit', ['id' => $event->id]);
     }
 
+    public function viewEventAsAdmin()
+    {
+        $event = Event::find(request('id'));
+        if(!$event) {
+            return redirect()->route('events.index');
+        }
+
+        return Inertia::render('EventInfo', [
+            'event' => $event,
+            'admin' => true
+        ]);
+    }
+
     public function socials()
     {
         return Inertia::render('Dashboard/Socials', [

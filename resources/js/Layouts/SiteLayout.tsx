@@ -47,7 +47,7 @@ export default function SiteLayout({children} : PropsWithChildren)
                     {children}
                 </main>
                 <footer className="w-full text-center text-sm">
-                    <p>
+                    <p className="pb-4">
                         <a
                             href={route('dashboard')}
                             className="text-white cursor-default hover:opacity-100 hover:text-white"

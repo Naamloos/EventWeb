@@ -26,7 +26,10 @@ export default function EventListComponent({events} : {events: Event[]}) {
                     {(!event.published) && <span className="text-yellow-600 ml-2 font-bold">(Hidden)</span>}
                 </p>
                 <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                    <a href={route('eventinfo', {id: event.id})} className="text-sm font-semibold text-indigo-600 hover:text-indigo-900 pr-2">View on site</a>
+                    {event.published ?
+                        <a href={route('eventinfo', {id: event.id})} className="text-sm font-semibold text-orange-600 hover:text-orange-900 pr-2">View on site</a>:
+                        <a href={route('events.preview', {id: event.id})} className="text-sm font-semibold text-yellow-600 hover:text-yellow-900 pr-2">Preview Hidden</a>
+                    }
                     <a href={route('events.edit', {id: event.id})} className="text-sm font-semibold text-indigo-600 hover:text-indigo-900 pr-2">Edit</a>
                     <Link href={route('events.destroy', {id: event.id})} method="delete" className="text-sm font-semibold text-red-600 hover:text-red-900 pr-2">Delete</Link>
                 </p>
