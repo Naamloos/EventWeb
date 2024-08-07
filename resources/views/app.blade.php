@@ -9,6 +9,10 @@
             <!-- Meta Tags -->
             @php
                 $event = App\Models\Event::find(Route::current()->parameter('id'));
+                if(!$event->published)
+                {
+                    abort(404);
+                }
             @endphp
             <meta property="og:title" content="{{ $event->name }}" />
             <meta property="og:description" content="{{ $event->description }}" />
