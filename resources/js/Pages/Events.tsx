@@ -1,6 +1,6 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { EventsProps } from "@/types/props/EventsProps";
-import PlaceholderBanner from "@/../img/placeholder-bannerv2.png";
+import PlaceholderBanner from "@/../img/banner.jpg";
 import { Head } from "@inertiajs/react";
 import Logo from "@/../img/ravelogo.png";
 

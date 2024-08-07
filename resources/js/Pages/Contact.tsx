@@ -1,6 +1,6 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { ContactProps } from "@/types/props/ContactProps";
-import PlaceholderBanner from "@/../img/placeholder-bannerv2.png";
+import PlaceholderBanner from "@/../img/banner.jpg";
 import { Head } from "@inertiajs/react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";

@@ -1,6 +1,6 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { IndexProps } from "@/types/props/IndexProps";
-import PlaceholderBanner from "@/../img/placeholder-bannerv2.png";
+import PlaceholderBanner from "@/../img/banner.jpg";
 import InstagramComponent from "@/Components/InstagramComponent";
 import { Head } from "@inertiajs/react";
 import Logo from "@/../img/ravelogo.png";
