@@ -42,3 +42,12 @@ html
 {
     font-family: "Roboto", sans-serif !important;
 }
+
+.ellipsis-multiline {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 5; /* Number of lines before ellipsis */
+    -webkit-line-clamp: 5; /* Number of lines before ellipsis */
+  }

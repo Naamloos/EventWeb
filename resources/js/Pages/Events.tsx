@@ -35,7 +35,7 @@ export default function Events(props : EventsProps) {
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left px-6">
                     {futureEvents?.map((event) => (
                         <a href={route('eventinfo', {id: event.id})}>
-                            <div className="w-full bg-white bg-opacity-5 my-2 rounded xl:h-40 h-52 hover:opacity-75" key={event.id}>
+                            <div className="w-full bg-white bg-opacity-5 my-2 rounded h-60 hover:opacity-75" key={event.id}>
                                 <div className="w-2/6 float-left inline-block h-full">
                                     <img
                                         src={event.image == ''? PlaceholderBanner : event.image}
@@ -43,14 +43,14 @@ export default function Events(props : EventsProps) {
                                         className="h-full w-full object-cover rounded-s"
                                     />
                                 </div>
-                                <div className="w-4/6 float-right p-5 h-full">
+                                <div className="w-4/6 float-right p-5 h-full text-ellipsis text-wrap">
                                     <h2 className="text-2xl font-bold text-white">
                                         {event.name}
                                     </h2>
-                                    <h3 className="text-l font-semibold">
+                                    <h3 className="text-xs font-semibold py-1">
                                         {new Date(event.starts_at).toLocaleDateString()} ({new Date(event.starts_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}) - {new Date(event.ends_at).toLocaleDateString()} ({new Date(event.ends_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})
                                     </h3>
-                                    <p className="text-white hover:text-white">
+                                    <p className="text-white hover:text-white whitespace-normal ellipsis-multiline">
                                         {event.description}
                                     </p>
                                 </div>
@@ -62,7 +62,7 @@ export default function Events(props : EventsProps) {
                     </h2>
                     {pastEvents?.map((event) => (
                         <a href={route('eventinfo', {id: event.id})}>
-                            <div className="w-full bg-white bg-opacity-5 my-2 rounded xl:h-40 h-52 hover:opacity-75" key={event.id}>
+                            <div className="w-full bg-white bg-opacity-5 my-2 rounded h-60 hover:opacity-75" key={event.id}>
                                 <div className="w-2/6 float-left inline-block h-full">
                                     <img
                                         src={event.image == ''? PlaceholderBanner : event.image}
