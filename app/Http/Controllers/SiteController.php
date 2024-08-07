@@ -53,8 +53,6 @@ class SiteController extends Controller
     public function events(Request $request)
     {
         $events = Event::where('published', true)->get();
-        // to array
-        $events = $events->toArray();
         // hide ticket_url if tickets_available is false
         foreach($events as $event)
         {
