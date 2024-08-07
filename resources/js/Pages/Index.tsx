@@ -30,7 +30,7 @@ export default function Index(props : IndexProps) {
             <div className="w-full flex flex-wrap justify-center mb-6">
                 <div className="w-full md:w-1/4 p-4">
                     <h2 className="text-center text-2xl font-bold">
-                        What is TanoRave?
+                        What is Tanoshima?
                     </h2>
                     <p className="text-center">
                         Tanoshima is a community of anime lovers who come together to celebrate their love for anime through music and dance.
@@ -41,9 +41,8 @@ export default function Index(props : IndexProps) {
                         When is the next event?
                     </h2>
                     <p className="text-center">
-                        Our next event is (automatically gather next event from back-end).
-                        We hope to see you there!
-                        Check out the <a href={route('events')}>events</a> page for more information.
+                        We can't wait to see you at our next event!
+                        Visit our <a href={route('events')}>events</a> page to find out when it's happening.
                     </p>
                 </div>
                 <div className="full md:w-1/4 p-4">

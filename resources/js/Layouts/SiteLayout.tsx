@@ -46,7 +46,7 @@ export default function SiteLayout({children} : PropsWithChildren)
                 <main>
                     {children}
                 </main>
-                <footer className="w-full p-6 text-center text-sm">
+                <footer className="w-full text-center text-sm">
                     <p>
                         <a
                             href={route('dashboard')}

@@ -78,4 +78,32 @@ class SiteController extends Controller
             'socials' => Social::all()
         ]);
     }
+
+    public function displayEventImage(Request $request, $id)
+    {
+        $event = Event::find($id);
+        if(!$event)
+        {
+            return redirect()->route('events');
+        }
+        if(!$event->published) {
+            return redirect()->route('events');
+        }
+
+        if(strpos($event->image, 'data:image') === false)
+        {
+            // return image from resources/img/placeholder_bannerv2.png
+            return response(file_get_contents(resource_path('img/placeholder_bannerv2.png')))->header('Content-Type', 'image/png');
+        }
+
+        // convert the base64 image url in $event->image to a that is returned
+        $contentType = substr(explode(';', $event->image)[0], 5);
+        $content = explode(',', $event->image)[1];
+        return response(base64_decode($content))->header('Content-Type', $contentType);
+    }
+
+    public function displayLogo(Request $request)
+    {
+        return response(file_get_contents(resource_path('img/ravelogo4kant_transparant.png')))->header('Content-Type', 'image/png');
+    }
 }

@@ -12,6 +12,8 @@ Route::controller(SiteController::class)
         Route::get('/events', 'events')->name('events');
         Route::get('/event/{id}', 'eventInfo')->name('eventinfo');
         Route::get('/contact', 'contact')->name('contact');
+        Route::get('/event_image/{id}', 'displayEventImage')->name('eventImage');
+        Route::get('/logo', 'displayLogo')->name('logo');
     });
 
 Route::middleware('auth')->prefix('admin')->group(function () {

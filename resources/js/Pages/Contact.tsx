@@ -31,7 +31,7 @@ export default function Events(props : ContactProps) {
                     Contact
                 </h1>
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left">
-                    <div className="w-full bg-white bg-opacity-5 rounded-t p-4">
+                    <div className="w-full bg-white bg-opacity-5 rounded p-4 mb-2">
                         {/* block of text about how to contact us */}
                         You can easily reach out to us by following our social media accounts. Stay connected with our latest updates, events, and announcements. We look forward to connecting with you!
                         {props.socials?.map((social) => (
