@@ -6,7 +6,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import Logo from "@/../img/ravelogo.png";
-import { IconPickerItem } from "react-fa-icon-picker-alen";
 
 export default function Events(props : ContactProps) {
     library.add(fab);
@@ -41,7 +40,8 @@ export default function Events(props : ContactProps) {
                                     href={social.url}
                                     className="block text-l font-bold p-1 hover:opacity-60 mt-1"
                                 >
-                                    <IconPickerItem icon={social.icon} className="mr-2 w-5 inline-block" size={20} color="#6DC952"/>
+                                    {/* @ts-ignore */}
+                                    <FontAwesomeIcon icon={social.icon} className="mr-2 w-5 inline-block"/>
                                     <span className="align-top inline-block">
                                         {social.name}
                                     </span>

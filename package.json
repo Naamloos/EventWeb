@@ -29,7 +29,6 @@
         "@fortawesome/free-regular-svg-icons": "^6.6.0",
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@uiw/react-md-editor": "^4.0.4",
-        "react-fa-icon-picker-alen": "github:drlalensoftware/react-fa-icon-picker-alen"
+        "@uiw/react-md-editor": "^4.0.4"
     }
 }

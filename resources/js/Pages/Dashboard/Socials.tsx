@@ -2,17 +2,13 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
 import { SocialsProps } from '@/types/props/SocialsProps';
 import SocialListComponent from '@/Components/SocialListComponent';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { IconPicker } from 'react-fa-icon-picker-alen';
 
 export default function Socials({ auth, socials }: SocialsProps) {
-    library.add(fab);
 
     const newSocial = useForm({
         name: 'Facebook',
         url: 'https://facebook.com/facebook',
-        icon: 'facebook'
+        icon: 'fa-brands fa-facebook'
     })
 
     const postNewSocial = () => {
@@ -32,6 +28,7 @@ export default function Socials({ auth, socials }: SocialsProps) {
                         {/* tiny form to add a new social */}
                         <div className="p-6 text-gray-900">
                             <h2 className="text-3xl font-semibold text-black">Socials (Contact Page)</h2>
+                            <a href='https://fontawesome.com/icons' target='_blank' className="text-blue-500 hover:text-blue-700 font-semibold block">Search Icons</a>
                             <label htmlFor="name" className="font-semibold mt-3 mr-1">Social Name</label>
                             <input
                                 type="text"
@@ -53,14 +50,14 @@ export default function Socials({ auth, socials }: SocialsProps) {
                             />
 
                             <label htmlFor="icon" className="font-semibold mt-3 ml-2 mr-1">Icon</label>
-                            <div className='inline-block'>
-                                <IconPicker
-                                    id="icon"
-                                    value={newSocial.data.icon}
-                                    // @ts-ignore
-                                    onChange={icon => newSocial.setData('icon', icon)}
-                                />
-                            </div>
+                            <input
+                                type="text"
+                                id="icon"
+                                name="icon"
+                                value={newSocial.data.icon}
+                                onChange={e => newSocial.setData('icon', e.target.value)}
+                                className="border border-gray-300 p-1 rounded-lg"
+                            />
 
                             <button
                                 onClick={postNewSocial}
