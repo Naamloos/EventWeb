@@ -52,8 +52,19 @@ class SiteController extends Controller
 
     public function events(Request $request)
     {
+        $events = Event::where('published', true)->get();
+        // to array
+        $events = $events->toArray();
+        // hide ticket_url if tickets_available is false
+        foreach($events as $event)
+        {
+            if(!$event->tickets_available)
+            {
+                $event->ticket_url = 'none';
+            }
+        }
         return Inertia::render('Events', [
-            'events' => Event::where('published', true)->get()
+            'events' => $events
         ]);
     }
 
@@ -66,6 +77,10 @@ class SiteController extends Controller
         }
         if(!$event->published) {
             return redirect()->route('events');
+        }
+        if(!$event->tickets_available)
+        {
+            $event->ticket_url = 'none';
         }
         return Inertia::render('EventInfo', [
             'event' => $event

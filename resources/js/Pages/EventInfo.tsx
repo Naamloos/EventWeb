@@ -105,7 +105,7 @@ export default function Events(props : EventInfoProps) {
                             </div>
                         </> :
                         isValidUrl(props.event.ticket_url) ? <TicketTailerEmbedder link={props.event.ticket_url}/>
-                        : <div className="w-full bg-white bg-opacity-5 rounded-b p-4">
+                        : <div className="w-full bg-white bg-opacity-5 rounded-b p-4 mb-4">
                             <p className="text-xl pl-2 font-semibold text-red-600">
                                 Tickets are not yet available for this event. Please check again later!
                             </p>

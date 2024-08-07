@@ -18,7 +18,8 @@ export default function Index({ event, auth }: EditEventProps) {
         image: event.image,
         about: event.about,
         ticket_url: event.ticket_url,
-        published: event.published
+        published: event.published,
+        tickets_available: event.tickets_available,
     });
 
     // function to submit form data
@@ -81,6 +82,18 @@ export default function Index({ event, auth }: EditEventProps) {
                                         name="published"
                                         checked={form.data.published}
                                         onChange={e => form.setData('published', e.target.checked)}
+                                        className="border border-gray-300 p-2 rounded-lg ml-2"
+                                    />
+                                </div>
+
+                                <div className='pt-3'>
+                                    <label htmlFor="tickets_available" className="text-lg font-semibold pt-2">Allow ticket sales? (passed events always hide tickets)</label>
+                                    <input
+                                        type="checkbox"
+                                        id="tickets_available"
+                                        name="tickets_available"
+                                        checked={form.data.tickets_available}
+                                        onChange={e => form.setData('tickets_available', e.target.checked)}
                                         className="border border-gray-300 p-2 rounded-lg ml-2"
                                     />
                                 </div>
