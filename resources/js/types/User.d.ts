@@ -6,4 +6,5 @@ export interface User {
     email: string;
     email_verified_at: string;
     roles: Role[];
+    is_super_admin: boolean;
 }

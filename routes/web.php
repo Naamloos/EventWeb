@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -13,16 +14,26 @@ Route::controller(SiteController::class)
         Route::get('/contact', 'contact')->name('contact');
     });
 
-Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard/Index');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->prefix('admin')->group(function () {
 
-    Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    });
+    Route::controller(AdminController::class)
+        ->group(function () {
+            Route::get('/dashboard', 'dashboard')->name('dashboard');
+            Route::get('/events', 'events')->name('events.index');
+            Route::get('/events/{id}', 'editEvent')->name('events.edit');
+            Route::patch('/events/{id}', 'updateEvent')->name('events.update');
+            Route::delete('/events/{id}', 'destroyEvent')->name('events.destroy');
+            Route::put('/events/new', 'addEmptyEvent')->name('events.new');
+            Route::get('/socials', 'socials')->name('socials.index');
+            Route::delete('/socials/{id}', 'removeSocial')->name('socials.destroy');
+            Route::put('/socials/new', 'addSocial')->name('socials.new');
+            Route::get('/invite', 'invite')->name('invites');
+            Route::post('/invite', 'makeInvite')->name('invites.new');
+        });
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -19,11 +19,30 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                                 <Link href="/">
                                     <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                                 </Link>
+                                {user.is_super_admin && <>
+                                    <div>
+                                        <p className='text-blue-500 text-xs p-2 absolute blur-sm'>
+                                            SUPER ADMIN 😘
+                                        </p>
+                                        <p className='text-blue-500 text-xs p-2 relative top-0'>
+                                            SUPER ADMIN 😘
+                                        </p>
+                                    </div>
+                                </>}
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
+                                </NavLink>
+                                <NavLink href={route('events.index')} active={route().current('events.index')}>
+                                    Events
+                                </NavLink>
+                                <NavLink href={route('socials.index')} active={route().current('socials.index')}>
+                                    Socials
+                                </NavLink>
+                                <NavLink href={route('invites')} active={route().current('invites')}>
+                                    Create Invite
                                 </NavLink>
                             </div>
                         </div>
@@ -97,6 +116,22 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                             Dashboard
                         </ResponsiveNavLink>
                     </div>
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink href={route('events.index')} active={route().current('events.index')}>
+                            Events
+                        </ResponsiveNavLink>
+                    </div>
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink href={route('socials.index')} active={route().current('socials.index')}>
+                            Socials
+                        </ResponsiveNavLink>
+                    </div>
+                    <div className="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink href={route('invites')} active={route().current('invites')}>
+                            Create Invite
+                        </ResponsiveNavLink>
+                    </div>
+
 
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">

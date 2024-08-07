@@ -9,8 +9,8 @@ export default function InstagramComponent({username, height} : {username: strin
             style={{
                 width: "100%",
                 maxHeight: "100%",
+                borderRadius: "8px"
             }}
-            className="opacity-80"
         />
     </>
 }

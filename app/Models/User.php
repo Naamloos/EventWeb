@@ -22,7 +22,7 @@ class User extends Authenticatable
         'password',
     ];
 
-    protected $with = ['roles'];
+    //protected $with = ['roles'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,6 +44,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_super_admin' => 'boolean',
         ];
     }
 

@@ -5,5 +5,11 @@ export interface IndexProps {
         user: User;
     },
     laravelVersion: string,
-    phpVersion: string
+    phpVersion: string,
+    instagramPhotos?: instaphoto[],
+}
+
+interface instaphoto {
+    url: string;
+    image: string;
 }

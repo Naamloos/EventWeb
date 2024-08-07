@@ -1,10 +1,16 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { EventsProps } from "@/types/props/EventsProps";
-import PlaceholderBanner from "@/../img/placeholder-banner.jpg";
+import PlaceholderBanner from "@/../img/placeholder-bannerv2.png";
 import { Head } from "@inertiajs/react";
-import Logo from "@/../img/logo.png";
+import Logo from "@/../img/ravelogo.png";
 
 export default function Events(props : EventsProps) {
+
+    const sortedEvents = props.events?.sort((b, a) => new Date(a.starts_at).getTime() - new Date(b.starts_at).getTime());
+
+    const pastEvents = sortedEvents?.filter((event) => new Date(event.ends_at).getTime() < new Date().getTime());
+    const futureEvents = sortedEvents?.filter((event) => new Date(event.ends_at).getTime() > new Date().getTime());
+
     return (
         <SiteLayout>
             <Head title="Events"/>
@@ -27,7 +33,34 @@ export default function Events(props : EventsProps) {
                     Events
                 </h1>
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left px-6">
-                    {props.events?.map((event) => (
+                    {futureEvents?.map((event) => (
+                        <a href={route('eventinfo', {id: event.id})}>
+                            <div className="w-full bg-white bg-opacity-5 my-2 rounded xl:h-40 h-52 hover:opacity-75" key={event.id}>
+                                <div className="w-2/6 float-left inline-block h-full">
+                                    <img
+                                        src={event.image == ''? PlaceholderBanner : event.image}
+                                        alt={event.name}
+                                        className="h-full w-full object-cover rounded-s"
+                                    />
+                                </div>
+                                <div className="w-4/6 float-right p-5 h-full">
+                                    <h2 className="text-2xl font-bold text-white">
+                                        {event.name}
+                                    </h2>
+                                    <h3 className="text-l font-semibold">
+                                        {new Date(event.starts_at).toLocaleDateString()} ({new Date(event.starts_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}) - {new Date(event.ends_at).toLocaleDateString()} ({new Date(event.ends_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})
+                                    </h3>
+                                    <p className="text-white hover:text-white">
+                                        {event.description}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                    <h2 className="text-3xl text-white font-bold pb-2 pt-3">
+                        Past Events
+                    </h2>
+                    {pastEvents?.map((event) => (
                         <a href={route('eventinfo', {id: event.id})}>
                             <div className="w-full bg-white bg-opacity-5 my-2 rounded xl:h-40 h-52 hover:opacity-75" key={event.id}>
                                 <div className="w-2/6 float-left inline-block h-full">

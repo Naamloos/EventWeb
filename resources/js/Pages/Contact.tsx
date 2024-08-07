@@ -1,11 +1,12 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { ContactProps } from "@/types/props/ContactProps";
-import PlaceholderBanner from "@/../img/placeholder-banner.jpg";
+import PlaceholderBanner from "@/../img/placeholder-bannerv2.png";
 import { Head } from "@inertiajs/react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import Logo from "@/../img/logo.png";
+import Logo from "@/../img/ravelogo.png";
+import { IconPickerItem } from "react-fa-icon-picker-alen";
 
 export default function Events(props : ContactProps) {
     library.add(fab);
@@ -33,16 +34,17 @@ export default function Events(props : ContactProps) {
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left">
                     <div className="w-full bg-white bg-opacity-5 rounded-t p-4">
                         {/* block of text about how to contact us */}
-                        You can contact us either by mailing to <a href={"mailto:"} className="hover:text-opacity-50">our@mail.here</a> or by following us on our socials:
+                        You can easily reach out to us by following our social media accounts. Stay connected with our latest updates, events, and announcements. We look forward to connecting with you!
                         {props.socials?.map((social) => (
                             <>
                                 <a
                                     href={social.url}
-                                    className="block text-l font-bold p-1 hover:opacity-60"
+                                    className="block text-l font-bold p-1 hover:opacity-60 mt-1"
                                 >
-                                    {/* @ts-ignore*/ }
-                                    <FontAwesomeIcon icon={["fab", social.icon]} className="mr-2 w-5"/>
-                                    {social.name}
+                                    <IconPickerItem icon={social.icon} className="mr-2 w-5 inline-block" size={20} color="#6DC952"/>
+                                    <span className="align-top inline-block">
+                                        {social.name}
+                                    </span>
                                 </a>
                             </>
                         ))}

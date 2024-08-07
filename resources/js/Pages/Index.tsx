@@ -1,11 +1,12 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { IndexProps } from "@/types/props/IndexProps";
-import PlaceholderBanner from "@/../img/placeholder-banner.jpg";
+import PlaceholderBanner from "@/../img/placeholder-bannerv2.png";
 import InstagramComponent from "@/Components/InstagramComponent";
 import { Head } from "@inertiajs/react";
-import Logo from "@/../img/logo.png";
+import Logo from "@/../img/ravelogo.png";
 
 export default function Index(props : IndexProps) {
+    console.log(props.instagramPhotos);
     return (
         <SiteLayout>
             <Head title="Welcome"/>
@@ -16,9 +17,7 @@ export default function Index(props : IndexProps) {
                     backgroundImage: `url(${PlaceholderBanner})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    borderColor: "#6DC952",
-                    backgroundBlendMode: "darken",
-                    backgroundColor: "#AAA",
+                    borderColor: "#6DC952"
                 }}
             >
                 {/* <h1 className="text-5xl text-white font-bold">
@@ -60,8 +59,22 @@ export default function Index(props : IndexProps) {
 
             {/* Instagram feed */}
             <div className="w-full text-center md:mb-6 m:0">
+                <h3 className="text-2xl font-bold pb-2">
+                    Our Instagram Feed
+                </h3>
                 <div className="inline-block lg:w-2/4 sm:w-4/5 w-full">
-                    <InstagramComponent username="tanorave" height={500}/>
+                    {/* <InstagramComponent username="tanorave" height={500}/> */}
+                    {props.instagramPhotos?.map((photo) => (
+                        <a href={photo.url} target="_blank" rel="noreferrer">
+                            <img src={photo.image} alt="" className="inline-block p-1"
+                            style={{
+                                height: "200px",
+                                width: "200px",
+                                // make image fit, not stretch
+                                objectFit: "cover",
+                            }}/>
+                        </a>
+                    ))}
                 </div>
             </div>
         </SiteLayout>
