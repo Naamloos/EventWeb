@@ -19,6 +19,11 @@ a:hover {
     color:#366128;
 }
 
+.headerLinks
+{
+    font-family: "Roboto", sans-serif;
+}
+
 /* create class named konami that spins the site */
 .easterEgg {
     animation: spin 2s linear infinite;
@@ -31,4 +36,9 @@ a:hover {
     100% {
         transform: rotate(360deg);
     }
+}
+
+html
+{
+    font-family: "Roboto", sans-serif !important;
 }

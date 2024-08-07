@@ -21,8 +21,8 @@ export default function SiteLayout({children} : PropsWithChildren)
             <div className="absolute left-0 top-0 w-5 h-5" onClick={(e) => easterEgg(e)} />
 
             <div className={clicks > 50? "easterEgg" : ""}>
-                <header className="w-full p-2 text-center">
-                    <nav className="inline-block">
+                <header className="w-full p-2 text-center font-bold">
+                    <nav className="inline-block headerLinks">
                         <a
                             href={route('index')}
                             className="hover:opacity-50 px-2"
