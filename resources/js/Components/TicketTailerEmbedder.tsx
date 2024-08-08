@@ -30,10 +30,6 @@ export default function TicketTailerEmbedder({link} : {link?: string})
                 iframe {
                     width: 100% !important;
                     max-width: 100% !important;
-                    background-color: #191919 !important;
-                }
-                    * {
-                color: white !important;
                 }
             `;
             document.head.appendChild(style)
