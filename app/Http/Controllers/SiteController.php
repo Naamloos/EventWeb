@@ -26,6 +26,7 @@ class SiteController extends Controller
 
     private function fetchInstagramPhotos()
     {
+        try{
         // check if data in laravel cache
         if(Cache::has('instagram_photos'))
         {
@@ -48,6 +49,10 @@ class SiteController extends Controller
         $newCacheItem = json_encode($out);
         Cache::put('instagram_photos', $newCacheItem, 60*60*12);
         return json_decode($newCacheItem); // ensure format is persistent
+        }catch(\Exception $e)
+        {
+            return [];
+        }
     }
 
     public function events(Request $request)
