@@ -1,3 +1,4 @@
+import { Social } from "../Social";
 import { User } from "../User"
 
 export interface IndexProps {
@@ -7,6 +8,7 @@ export interface IndexProps {
     laravelVersion: string,
     phpVersion: string,
     instagramPhotos?: instaphoto[],
+    socials: Social[]
 }
 
 interface instaphoto {

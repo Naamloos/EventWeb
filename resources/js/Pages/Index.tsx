@@ -4,9 +4,12 @@ import PlaceholderBanner from "@/../img/banner.jpg";
 import InstagramComponent from "@/Components/InstagramComponent";
 import { Head } from "@inertiajs/react";
 import Logo from "@/../img/ravelogo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 
 export default function Index(props : IndexProps) {
-    console.log(props.instagramPhotos);
+    library.add(fab);
     return (
         <SiteLayout>
             <Head title="Welcome"/>
@@ -55,12 +58,20 @@ export default function Index(props : IndexProps) {
                 </div>
             </div>
 
+                {/* Social media links */}
+                <div className="w-full flex flex-wrap justify-center mb-6 text-4xl">
+                    <div className="flex flex-wrap justify-center">
+                        {props.socials.map((social) => (
+                            <a href={social.url} target="_blank" rel="noreferrer" className="p-2">
+                                {/* @ts-ignore */}
+                                <FontAwesomeIcon icon={social.icon} className="inline-block"/>
+                            </a>
+                        ))}
+                    </div>
+                </div>
 
             {/* Instagram feed */}
             <div className="w-full text-center md:mb-6 m:0">
-                <h3 className="text-2xl font-bold pb-2">
-                    Our Instagram Feed
-                </h3>
                 <div className="inline-block lg:w-2/4 sm:w-4/5 w-full">
                     {/* <InstagramComponent username="tanorave" height={500}/> */}
                     {props.instagramPhotos?.map((photo) => (

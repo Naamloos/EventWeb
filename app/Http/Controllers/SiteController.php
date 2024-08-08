@@ -20,7 +20,8 @@ class SiteController extends Controller
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'instagramPhotos' => $this->fetchInstagramPhotos()
+            'instagramPhotos' => $this->fetchInstagramPhotos(),
+            'socials' => Social::all()
         ]);
     }
 
