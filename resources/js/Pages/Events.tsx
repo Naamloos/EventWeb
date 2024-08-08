@@ -13,6 +13,8 @@ export default function Events(props : EventsProps) {
     const futureEvents = sortedEvents?.filter((event) => new Date(event.ends_at).getTime() > new Date().getTime());
 
     const hasPastEvents = (pastEvents?.length ?? 0) > 0;
+    const hasUpcomingEvents = (futureEvents?.length ?? 0) > 0;
+    const hasNoEvents = !hasPastEvents && !hasUpcomingEvents;
 
     return (
         <SiteLayout>
@@ -36,9 +38,20 @@ export default function Events(props : EventsProps) {
                     Events
                 </h1>
                 <div className="inline-block lg:max-w-5xl w-full text-left px-6">
-                    {futureEvents?.map((event) => (
-                        <EventBlock {...event} />
-                    ))}
+                    {hasNoEvents && <div className="w-full bg-white bg-opacity-5 rounded p-4 mb-2">
+                        <p>
+                            There are no events to display.
+                        </p>
+                    </div>}
+
+                    {hasUpcomingEvents && <>
+                        <h2 className="text-3xl text-white font-bold pb-2 pt-3">
+                            Upcoming Events
+                        </h2>
+                        {futureEvents?.map((event) => (
+                            <EventBlock {...event} />
+                        ))}
+                    </>}
                     {hasPastEvents && <>
                         <h2 className="text-3xl text-white font-bold pb-2 pt-3">
                             Past Events
