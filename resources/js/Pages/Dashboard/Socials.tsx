@@ -23,12 +23,11 @@ export default function Socials({ auth, socials }: SocialsProps) {
             <Head title="Dashboard" />
 
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg min-h-svh">
+                <div className="max-w-6xl mx-auto sm:px-6">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         {/* tiny form to add a new social */}
                         <div className="p-6 text-gray-900">
                             <h2 className="text-3xl font-semibold text-black">Socials (Contact Page)</h2>
-                            <a href='https://fontawesome.com/icons' target='_blank' className="text-blue-500 hover:text-blue-700 font-semibold block">Search Icons</a>
                             <label htmlFor="name" className="font-semibold mt-3 mr-1">Social Name</label>
                             <input
                                 type="text"
@@ -61,10 +60,11 @@ export default function Socials({ auth, socials }: SocialsProps) {
 
                             <button
                                 onClick={postNewSocial}
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded mt-3 ml-2"
+                                className="bg-green-500 hover:bg-green-700 text-white  font-bold py-1 px-4 rounded mt-3 ml-2"
                             >
                                 Add Social
                             </button>
+                            <a href='https://fontawesome.com/icons' target='_blank' className="text-green-500 hover:text-green-700 pt-2 font-semibold block">Search Icons</a>
                         </div>
                         {socials? <SocialListComponent socials={socials} /> : null}
                     </div>

@@ -14,7 +14,10 @@ export default function SocialListComponent({socials} : {socials: Social[]}) {
                 {/* @ts-ignore */}
                 <FontAwesomeIcon icon={social.icon} className="flex-none text-black h-16 w-16" />
               <div className="min-w-0 flex-auto">
-                <p className="text-sm font-semibold leading-6 text-gray-900">{social.name}</p>
+                <p className="text-sm font-semibold leading-6 text-gray-900">
+                    <span className="text-xs opacity-50 font-normal pr-2">ID: {social.id}</span>
+                    {social.name}
+                </p>
                 <p className="mt-1 truncate text-xs leading-5 text-gray-500">{social.url}</p>
                 <Link href={route('socials.destroy', {id: social.id})} method="delete" className="text-sm font-semibold text-red-600 hover:text-red-900 pr-2">Delete</Link>
               </div>

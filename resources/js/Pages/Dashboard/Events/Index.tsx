@@ -15,9 +15,10 @@ export default function Index({ events, auth }: EventIndexProps) {
                 <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
+                            <h2 className="text-3xl font-semibold text-black inline">Events</h2>
                             <Link href={route('events.new')} method='put' className="text-gray-900">
-                                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    New Empty Event
+                                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 ml-2 px-4 rounded inline-block">
+                                    New
                                 </button>
                             </Link>
                             <EventListComponent events={events} />

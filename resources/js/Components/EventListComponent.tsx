@@ -43,7 +43,7 @@ export default function EventListComponent({events} : {events: Event[]}) {
                 />
               <div className="min-w-0 flex-auto">
                 <p className="text-sm font-semibold leading-6 text-gray-900">
-                    {event.name}&nbsp;
+                    <span className="text-xs opacity-50 pr-1">ID {event.id}</span>{event.name}&nbsp;
                     {eventHappened && <span className="text-red-600 ml-2 font-bold">(Event has ended)</span>}
                     {(!event.published) && <span className="text-yellow-600 ml-2 font-bold">(Hidden)</span>}
                 </p>

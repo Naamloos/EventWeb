@@ -17,14 +17,14 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                    <ApplicationLogo className="block h-16 w-auto fill-current text-gray-800" />
                                 </Link>
                                 {user.is_super_admin && <>
                                     <div>
-                                        <p className='text-blue-500 text-xs p-2 absolute blur-sm'>
+                                        <p className='text-green-600 text-xs p-2 absolute animate-ping'>
                                             SUPER ADMIN 😘
                                         </p>
-                                        <p className='text-blue-500 text-xs p-2 relative top-0'>
+                                        <p className='text-green-500 text-xs p-2 relative top-0'>
                                             SUPER ADMIN 😘
                                         </p>
                                     </div>
@@ -42,7 +42,7 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                                     Socials
                                 </NavLink>
                                 <NavLink href={route('invites')} active={route().current('invites')}>
-                                    Create Invite
+                                    Invite
                                 </NavLink>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                     </div>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('invites')} active={route().current('invites')}>
-                            Create Invite
+                            Invite
                         </ResponsiveNavLink>
                     </div>
 

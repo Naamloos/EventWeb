@@ -18,6 +18,7 @@ export default function Invites({ auth, newInvite }: InviteProps) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg text-center p-12">
+                        <h2 className="text-3xl font-semibold text-black pb-4">Admin Invite</h2>
                         {
                             newInvite?
                             <>
