@@ -12,6 +12,8 @@ export default function Events(props : EventsProps) {
     const pastEvents = sortedEvents?.filter((event) => new Date(event.ends_at).getTime() < new Date().getTime());
     const futureEvents = sortedEvents?.filter((event) => new Date(event.ends_at).getTime() > new Date().getTime());
 
+    const hasPastEvents = (pastEvents?.length ?? 0) > 0;
+
     return (
         <SiteLayout>
             <Head title="Events"/>
@@ -37,12 +39,14 @@ export default function Events(props : EventsProps) {
                     {futureEvents?.map((event) => (
                         <EventBlock {...event} />
                     ))}
-                    <h2 className="text-3xl text-white font-bold pb-2 pt-3">
-                        Past Events
-                    </h2>
-                    {pastEvents?.map((event) => (
-                        <EventBlock {...event} />
-                    ))}
+                    {hasPastEvents && <>
+                        <h2 className="text-3xl text-white font-bold pb-2 pt-3">
+                            Past Events
+                        </h2>
+                        {pastEvents?.map((event) => (
+                            <EventBlock {...event} />
+                        ))}
+                    </>}
                 </div>
             </div>
         </SiteLayout>
