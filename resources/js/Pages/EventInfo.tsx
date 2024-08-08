@@ -50,7 +50,7 @@ export default function Events(props : EventInfoProps) {
                             <img
                                 src={props.event.image}
                                 alt={props.event.name}
-                                className="h-72 w-full object-cover rounded my-2"
+                                className="w-full max-h-96 object-cover rounded my-2"
                                 onError={(e) => { e.currentTarget.src = PlaceholderBanner }}
                             />
                             <h2 className="text-l font-semibold">
