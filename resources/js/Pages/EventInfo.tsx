@@ -75,7 +75,7 @@ export default function Events(props : EventInfoProps) {
                                     {new Date(props.event.ends_at).toLocaleDateString()} ({new Date(props.event.ends_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})
                                 </span>
                             </p>
-                            <p className="py-5">
+                            <div className="py-5">
                                 <MDEditor.Markdown
                                     source={props.event.about}
                                     style={{
@@ -88,7 +88,7 @@ export default function Events(props : EventInfoProps) {
                                         "data-color-mode": "dark"
                                     }}
                                 />
-                            </p>
+                            </div>
                             <div className="w-full text-center h-64">
                                 <div className="w-full h-full p-2 my-2 inline-block">
                                     <MapsEmbedComponent location={props.event.location}/>

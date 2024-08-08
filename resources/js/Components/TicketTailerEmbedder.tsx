@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 export default function TicketTailerEmbedder({link} : {link?: string})
 {
     if(link == undefined)
@@ -15,6 +17,11 @@ export default function TicketTailerEmbedder({link} : {link?: string})
             </>
         );
     }
+
+    useEffect(() => {
+
+    });
+
     return (
         <>
             {/* iframe for ticketing site, fills width horizontally */}
@@ -23,7 +30,15 @@ export default function TicketTailerEmbedder({link} : {link?: string})
             >
                 <iframe
                     src={link}
-                    className="w-full aspect-video h-fit pb-5 border-none"
+                    className="w-full pb-5 border-none"
+                    id="tickettailor-iframe"
+                    style={{
+                        height: "100vh",
+                        width: "100%",
+                        border: "none",
+                        overflow: "hidden",
+                        display: "block",
+                    }}
                 />
             </div>
         </>
