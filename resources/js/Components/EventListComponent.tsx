@@ -10,6 +10,28 @@ export default function EventListComponent({events} : {events: Event[]}) {
       <ul role="list" className="divide-y divide-gray-100">
         {sortedEvents.map((event) => {
             let eventHappened = new Date(event.ends_at).getTime() < new Date().getTime();
+
+            const start = new Date(event.starts_at);
+            const end = new Date(event.ends_at);
+            const startTime = start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC'});
+            const endTime = end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC'});
+
+            const yyyy = start.getFullYear();
+            let mm : any = start.getMonth() + 1; // Months start at 0!
+            let dd : any = start.getDate();
+
+            if (dd < 10) dd = '0' + dd;
+            if (mm < 10) mm = '0' + mm;
+            const formattedStart = dd + '-' + mm + '-' + yyyy;
+
+            const yyyyEnd = end.getFullYear();
+            let mmEnd : any = end.getMonth() + 1; // Months start at 0!
+            let ddEnd : any = end.getDate();
+
+            if (ddEnd < 10) ddEnd = '0' + ddEnd;
+            if (mmEnd < 10) mmEnd = '0' + mmEnd;
+            const formattedEnd = ddEnd + '-' + mmEnd + '-' + yyyyEnd;
+
         return (
           <li key={event.id} className="flex justify-between gap-x-6 py-5">
             <div className="flex min-w-0 gap-x-4">
@@ -37,10 +59,10 @@ export default function EventListComponent({events} : {events: Event[]}) {
             </div>
             <div className="shrink-0 flex flex-col items-end">
                 <p className="mt-1 text-xs leading-5 text-gray-500">
-                    Start: {new Date(event.starts_at).toLocaleDateString()} at {new Date(event.starts_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    Start: {formattedStart} at {startTime}
                 </p>
                 <p className="mt-1 text-xs leading-5 text-gray-500">
-                    End: {new Date(event.ends_at).toLocaleDateString()} at {new Date(event.ends_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    End: {formattedEnd} at {endTime}
                 </p>
             </div>
           </li>

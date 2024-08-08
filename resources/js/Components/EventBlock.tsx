@@ -2,6 +2,27 @@ import { Event } from "@/types/Event";
 import PlaceholderBanner from "@/../img/banner.jpg";
 
 export default function EventBlock(event: Event) {
+    const start = new Date(event.starts_at);
+    const end = new Date(event.ends_at);
+    const startTime = start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC'});
+    const endTime = end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC'});
+
+    const yyyy = start.getFullYear();
+    let mm : any = start.getMonth() + 1; // Months start at 0!
+    let dd : any = start.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    const formattedStart = dd + '-' + mm + '-' + yyyy;
+
+    const yyyyEnd = end.getFullYear();
+    let mmEnd : any = end.getMonth() + 1; // Months start at 0!
+    let ddEnd : any = end.getDate();
+
+    if (ddEnd < 10) ddEnd = '0' + ddEnd;
+    if (mmEnd < 10) mmEnd = '0' + mmEnd;
+    const formattedEnd = ddEnd + '-' + mmEnd + '-' + yyyyEnd;
+
     return (
         <a href={route("eventinfo", { id: event.id })}>
             <div
@@ -22,17 +43,9 @@ export default function EventBlock(event: Event) {
                         {event.name}
                     </h2>
                     <h3 className="text-xs font-semibold py-1">
-                        {new Date(event.starts_at).toLocaleDateString()} (
-                        {new Date(event.starts_at).toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                        })}
-                        ) - {new Date(event.ends_at).toLocaleDateString()} (
-                        {new Date(event.ends_at).toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                        })}
-                        )
+                        {formattedStart} at {startTime}
+                        &nbsp;-&nbsp;
+                        {formattedEnd} at {endTime}
                     </h3>
                     <p className="text-white hover:text-white whitespace-normal ellipsis-multiline">
                         {event.description}
