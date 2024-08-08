@@ -85,6 +85,10 @@ class SiteController extends Controller
         {
             $event->ticket_url = 'none';
         }
+
+        // allow cross-origin requests
+        header('Access-Control-Allow-Origin: *');
+
         return Inertia::render('EventInfo', [
             'event' => $event
         ]);

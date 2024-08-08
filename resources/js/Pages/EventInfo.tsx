@@ -38,7 +38,7 @@ export default function Events(props : EventInfoProps) {
             </div>
 
             {/* show event info, wider box, nicer box, use all properties */}
-            <div className="w-full text-center">
+            <div className="w-full text-center pb-4">
                 <h1 className="text-5xl text-white font-bold pb-6">
                     {props.event.name}<br/>
                     {props.admin && <span className="text-red-600">(HIDDEN PREVIEW)</span>}
@@ -46,7 +46,7 @@ export default function Events(props : EventInfoProps) {
                 <div className="inline-block xl:w-2/5 sm:w-3/5 w-full text-left">
                     <div className="w-full bg-white bg-opacity-5 mt-2 rounded-t">
                         {/* two columns, image left, info right */}
-                        <div className="p-5 h-full w-full">
+                        <div className="p-5 pb-0 h-full w-full">
                             <img
                                 src={props.event.image}
                                 alt={props.event.name}
@@ -90,31 +90,29 @@ export default function Events(props : EventInfoProps) {
                                 />
                             </div>
                             <div className="w-full text-center h-64">
-                                <div className="w-full h-full p-2 my-2 inline-block">
+                                <div className="w-full h-full inline-block">
                                     <MapsEmbedComponent location={props.event.location}/>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div className="w-full bg-white bg-opacity-5 p-4"></div>
                     {
-                        eventHappened? <>
-                            <div className="w-full bg-white bg-opacity-5 rounded-b p-4 mb-4">
-                                <p className="text-xl pl-2 font-semibold text-red-600">
-                                    This event already happened! It is no longer possible to buy tickets.
-                                </p>
-                            </div>
-                        </> :
-                        isValidUrl(props.event.ticket_url) ? <TicketTailerEmbedder link={props.event.ticket_url}/>
-                        : <div className="w-full bg-white bg-opacity-5 rounded-b p-4 mb-4">
+                        eventHappened?
+                        <>
                             <p className="text-xl pl-2 font-semibold text-red-600">
-                                Tickets are not yet available for this event. Please check again later!
+                                This event already happened! It is no longer possible to buy tickets.
                             </p>
-                        </div>
+                        </> :
+                        isValidUrl(props.event.ticket_url) ?
+                            <TicketTailerEmbedder link={props.event.ticket_url}/>
+                        :
+                        <p className="text-xl pl-2 font-semibold text-red-600">
+                            Tickets are not yet available for this event. Please check again later!
+                        </p>
                     }
+                    </div>
                 </div>
-            </div>
-
-
         </SiteLayout>
     );
 }
