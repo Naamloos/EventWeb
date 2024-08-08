@@ -6,6 +6,7 @@ import MapsEmbedComponent from "@/Components/MapsEmbedComponent";
 import Logo from "@/../img/ravelogo.png";
 import { Head } from "@inertiajs/react";
 import MDEditor from "@uiw/react-md-editor";
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 export default function Events(props : EventInfoProps) {
 
@@ -20,6 +21,32 @@ export default function Events(props : EventInfoProps) {
   }
 
   const eventHappened = new Date(props.event.ends_at).getTime() < new Date().getTime();
+
+  const startTimeString = new Date(props.event.starts_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const startDateString = new Date(props.event.starts_at).toLocaleDateString([], {});
+    const endTimeString = new Date(props.event.ends_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit'});
+    const endDateString = new Date(props.event.ends_at).toLocaleDateString([], {});
+
+    const start = new Date(props.event.starts_at);
+    const end = new Date(props.event.ends_at);
+    const startTime = start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC'});
+    const endTime = end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC'});
+
+    const yyyy = start.getFullYear();
+    let mm : any = start.getMonth() + 1; // Months start at 0!
+    let dd : any = start.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    const formattedStart = dd + '-' + mm + '-' + yyyy;
+
+    const yyyyEnd = end.getFullYear();
+    let mmEnd : any = end.getMonth() + 1; // Months start at 0!
+    let ddEnd : any = end.getDate();
+
+    if (ddEnd < 10) ddEnd = '0' + ddEnd;
+    if (mmEnd < 10) mmEnd = '0' + mmEnd;
+    const formattedEnd = ddEnd + '-' + mmEnd + '-' + yyyyEnd;
 
     return (
         <SiteLayout>
@@ -63,19 +90,34 @@ export default function Events(props : EventInfoProps) {
                                     Google Maps
                                 </a>)
                             </h2>
+
                             <p className="text-l">
                                 Start:&nbsp;
                                 <span className="text-white font-normal">
-                                    {new Date(props.event.starts_at).toLocaleDateString()} ({new Date(props.event.starts_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})
+                                    {formattedStart} {startTime}
                                 </span>
                             </p>
                             <p className="text-l">
                                 End:&nbsp;
                                 <span className="text-white font-normal">
-                                    {new Date(props.event.ends_at).toLocaleDateString()} ({new Date(props.event.ends_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})
+                                    {formattedEnd} {endTime}
                                 </span>
                             </p>
-                            <div className="py-5">
+                            <p className="text-l pt-2">
+                                <AddToCalendarButton
+                                    name={props.event.name}
+                                    location={props.event.location}
+                                    description={props.event.description + "    " + route('eventinfo', {id: props.event.id}, true)}
+                                    options={['Apple', 'Google', 'Outlook.com', 'Yahoo', 'iCal', 'MicrosoftTeams']}
+                                    startDate={yyyy + '-' + mm + '-' + dd}
+                                    endDate={yyyyEnd + '-' + mmEnd + '-' + ddEnd}
+                                    startTime={startTime}
+                                    endTime={endTime}
+                                    timeZone="Europe/Amsterdam"
+                                    lightMode="dark"
+                                />
+                            </p>
+                            <div className="py-5 pt-2">
                                 <MDEditor.Markdown
                                     source={props.event.about}
                                     style={{

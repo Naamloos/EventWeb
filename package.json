@@ -29,6 +29,7 @@
         "@fortawesome/free-regular-svg-icons": "^6.6.0",
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@uiw/react-md-editor": "^4.0.4"
+        "@uiw/react-md-editor": "^4.0.4",
+        "add-to-calendar-button-react": "^2.6.18"
     }
 }

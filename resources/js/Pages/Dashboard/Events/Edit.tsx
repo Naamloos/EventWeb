@@ -7,14 +7,18 @@ import PlaceholderImage from '../../../../img/placeholder-banner.jpg';
 
 export default function Index({ event, auth }: EditEventProps) {
 
+    let oldStart = new Date(event.starts_at);
+    let oldEnd = new Date(event.ends_at);
+    oldStart = new Date(oldStart.toUTCString());
+    oldEnd = new Date(oldEnd.toUTCString());
     // create form to use
     const form = useForm
     ({
         name: event.name,
         description: event.description,
         location: event.location,
-        starts_at: new Date(event.starts_at).toISOString().slice(0, 19),
-        ends_at: new Date(event.ends_at).toISOString().slice(0, 19),
+        starts_at: oldStart.toISOString().slice(0, 19),
+        ends_at: oldEnd.toISOString().slice(0, 19),
         image: event.image,
         about: event.about,
         ticket_url: event.ticket_url,
@@ -26,6 +30,12 @@ export default function Index({ event, auth }: EditEventProps) {
     const submitFormUpdate = () =>
     {
         // submit form data to back-end
+        var newStart = new Date(form.data.starts_at);
+        var newEnd = new Date(form.data.ends_at);
+        newStart.setHours(newStart.getHours() - 2);
+        newEnd.setHours(newEnd.getHours() - 2);
+        form.setData('starts_at', newStart.toISOString().slice(0, 19));
+        form.setData('ends_at', newEnd.toISOString().slice(0, 19));
         form.patch(route('events.update', {id: event.id}));
     }
 
@@ -108,7 +118,7 @@ export default function Index({ event, auth }: EditEventProps) {
                                     className="border border-gray-300 p-2 rounded-lg"
                                 />
 
-                                <label htmlFor="starts_at" className="text-lg font-semibold mt-3">Starts At</label>
+                                <label htmlFor="starts_at" className="text-lg font-semibold mt-3">Starts At (Timezone: Amsterdam)</label>
                                 {/* date and time separately */}
                                 <input
                                     type='datetime-local'
@@ -119,7 +129,7 @@ export default function Index({ event, auth }: EditEventProps) {
                                     className="border border-gray-300 p-2 rounded-lg"
                                 />
 
-                                <label htmlFor="ends_at" className="text-lg font-semibold mt-3">Ends At</label>
+                                <label htmlFor="ends_at" className="text-lg font-semibold mt-3">Ends At (Timezone: Amsterdam)</label>
                                 {/* date and time separately */}
                                 <input
                                     type='datetime-local'
