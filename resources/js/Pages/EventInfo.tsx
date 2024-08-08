@@ -96,7 +96,7 @@ export default function Events(props : EventInfoProps) {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full bg-white bg-opacity-5 p-4"></div>
+                    <div className="w-full bg-white bg-opacity-5 p-4 rounded-b">
                     {
                         eventHappened?
                         <>
@@ -113,6 +113,7 @@ export default function Events(props : EventInfoProps) {
                     }
                     </div>
                 </div>
+            </div>
         </SiteLayout>
     );
 }
