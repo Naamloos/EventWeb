@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Invite;
+use App\Models\Note;
 use App\Models\Social;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -13,7 +14,38 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return Inertia::render('Dashboard/Index');
+        return Inertia::render('Dashboard/Index', [
+            'notes' => Note::all(),
+        ]);
+    }
+
+    public function addNote()
+    {
+        $note = new Note();
+        $note->content = 'New Note';
+        $note->save();
+        return redirect()->route('dashboard');
+    }
+
+    public function updateNote($id, Request $request)
+    {
+        $note = Note::find($id);
+        if(!$note) {
+            return redirect()->route('dashboard');
+        }
+        $note->content = $request->input('content');
+        $note->save();
+        return response(''); // 200
+    }
+
+    public function destroyNote($id)
+    {
+        $note = Note::find($id);
+        if(!$note) {
+            return redirect()->route('dashboard');
+        }
+        $note->delete();
+        return redirect()->route('dashboard');
     }
 
     public function events()

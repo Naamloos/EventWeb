@@ -21,6 +21,11 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::controller(AdminController::class)
         ->group(function () {
             Route::get('/dashboard', 'dashboard')->name('dashboard');
+
+            Route::post('/notes', 'addNote')->name('notes.new');
+            Route::patch('/notes/{id}', 'updateNote')->name('notes.update');
+            Route::delete('/notes/{id}', 'destroyNote')->name('notes.destroy');
+            
             Route::get('/events', 'events')->name('events.index');
             Route::get('/events/{id}', 'editEvent')->name('events.edit');
             Route::patch('/events/{id}', 'updateEvent')->name('events.update');

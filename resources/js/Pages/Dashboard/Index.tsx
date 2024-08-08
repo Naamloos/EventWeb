@@ -1,8 +1,9 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { DashboardProps } from '@/types/props/DashboardProps';
+import NoteComponent from '@/Components/NoteComponent';
 
-export default function Dashboard({ auth }: DashboardProps) {
+export default function Dashboard({ auth, notes }: DashboardProps) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -10,10 +11,27 @@ export default function Dashboard({ auth }: DashboardProps) {
         >
             <Head title="Dashboard" />
 
-            <div className="py-12">
+            {/* welcome text  */}
+            <div className="pt-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">You're logged in!</div>
+                        <div className="p-6 text-gray-900">
+                            <h2 className="text-3xl font-semibold text-black">Welcome, {auth.user.name}!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pt-6">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        {/* add button */}
+                        <div className="p-6 text-gray-900">
+                            <h2 className="text-xl font-semibold text-black inline-block pr-2 pb-1">Notes</h2>
+                            <Link href={route('notes.new')} method='post' className="bg-blue-500 text-white rounded px-2 mt-1 inline-block">+</Link>
+                            <p className="text-gray-500 pb-2">Add notes to keep track of important information.<br/>⚠️ These notes are shared across all admins!</p>
+                        </div>
+                        {notes.map(note => <NoteComponent note={note} />)}
                     </div>
                 </div>
             </div>
