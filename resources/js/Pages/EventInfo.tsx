@@ -6,7 +6,6 @@ import MapsEmbedComponent from "@/Components/MapsEmbedComponent";
 import Logo from "@/../img/ravelogo.png";
 import { Head } from "@inertiajs/react";
 import MDEditor from "@uiw/react-md-editor";
-import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 export default function Events(props : EventInfoProps) {
 
@@ -102,20 +101,6 @@ export default function Events(props : EventInfoProps) {
                                 <span className="text-white font-normal">
                                     {formattedEnd} {endTime}
                                 </span>
-                            </p>
-                            <p className="text-l pt-2">
-                                <AddToCalendarButton
-                                    name={props.event.name}
-                                    location={props.event.location}
-                                    description={props.event.description + "    " + route('eventinfo', {id: props.event.id}, true)}
-                                    options={['Apple', 'Google', 'Outlook.com', 'Yahoo', 'iCal', 'MicrosoftTeams']}
-                                    startDate={yyyy + '-' + mm + '-' + dd}
-                                    endDate={yyyyEnd + '-' + mmEnd + '-' + ddEnd}
-                                    startTime={startTime}
-                                    endTime={endTime}
-                                    timeZone="Europe/Amsterdam"
-                                    lightMode="dark"
-                                />
                             </p>
                             <div className="py-5 pt-2">
                                 <MDEditor.Markdown
