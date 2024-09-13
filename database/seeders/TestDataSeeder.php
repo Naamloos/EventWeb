@@ -28,7 +28,7 @@ class TestDataSeeder extends Seeder
             $event->starts_at = now();
             $event->ends_at = now()->addDays(1);
             $event->ticket_price = 15;
-            $event->ticket_url = 'https://www.tickettailor.com/all-tickets/brakkekoppenbv/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true';
+            $event->ticket_url = ' ';
             $event->published = true;
             $event->tickets_available = true;
             $event->image = '';
@@ -38,21 +38,21 @@ class TestDataSeeder extends Seeder
         $social = new Social();
         $social->name = 'Instagram';
         $social->icon = 'instagram';
-        $social->url = 'https://instagram.com/tanorave';
+        $social->url = 'https://instagram.com/naamloser';
         $social->order = 0;
         $social->save();
 
         $social = new Social();
         $social->name = 'Discord';
         $social->icon = 'discord';
-        $social->url = 'https://instagram.com/tanorave';
+        $social->url = 'https://instagram.com/naamloser';
         $social->order = 1;
         $social->save();
 
         $social = new Social();
         $social->name = 'YouTube';
         $social->icon = 'youtube';
-        $social->url = 'https://instagram.com/tanorave';
+        $social->url = 'https://instagram.com/naamloser';
         $social->order = 2;
         $social->save();
     }

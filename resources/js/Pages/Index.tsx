@@ -1,9 +1,9 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { IndexProps } from "@/types/props/IndexProps";
-import PlaceholderBanner from "@/../img/banner.jpg";
+import PlaceholderBanner from "@/../img/siteBanner.jpg";
 import InstagramComponent from "@/Components/InstagramComponent";
 import { Head } from "@inertiajs/react";
-import Logo from "@/../img/ravelogo.png";
+import Logo from "@/../img/placeholderLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -20,23 +20,20 @@ export default function Index(props : IndexProps) {
                     backgroundImage: `url(${PlaceholderBanner})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    borderColor: "#6DC952"
+                    borderColor: import.meta.env.VITE_BASE_COLOR
                 }}
             >
-                {/* <h1 className="text-5xl text-white font-bold">
-                    Tanoshima
-                </h1> */}
-                <img src={Logo} alt="Tanoshima" className="h-full xl:h-5/6"/>
+                <img src={Logo} alt="Logo" className="h-full xl:h-5/6"/>
             </div>
 
             {/* pretty info components */}
             <div className="w-full flex flex-wrap justify-center mb-6">
                 <div className="w-full md:w-1/4 p-4">
                     <h2 className="text-center text-2xl font-bold">
-                        What is Tanoshima?
+                        What is Eventweb?
                     </h2>
                     <p className="text-center">
-                        Tanoshima is a community of anime lovers who come together to celebrate their love for anime through music and dance.
+                    Eventweb is a web app for hosting information related to events. We provide a platform for event organizers to create and manage events, and for attendees to find and join events.
                     </p>
                 </div>
                 <div className="w-full md:w-1/4 p-4">
@@ -73,7 +70,6 @@ export default function Index(props : IndexProps) {
             {/* Instagram feed */}
             <div className="w-full text-center md:mb-6 m:0">
                 <div className="inline-block lg:w-2/4 sm:w-4/5 w-full">
-                    {/* <InstagramComponent username="tanorave" height={500}/> */}
                     {props.instagramPhotos?.map((photo) => (
                         <a href={photo.url} target="_blank" rel="noreferrer">
                             <img src={photo.image} alt="" className="inline-block p-1"

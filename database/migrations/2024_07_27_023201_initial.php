@@ -55,7 +55,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Gets used to display tanorave's social media links
+        // Gets used to display social media links
         Schema::create('socials', function (Blueprint $table) {
             $table->id();
             $table->integer('order')->default(0); // Order in which to display the social media platforms

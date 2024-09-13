@@ -1,5 +1,5 @@
 import { Event } from "@/types/Event";
-import PlaceholderImage from "../../img/placeholder-banner.jpg";
+import PlaceholderImage from "../../img/siteBanner.jpg";
 import { Link } from "@inertiajs/react";
 
 export default function EventListComponent({events} : {events: Event[]}) {

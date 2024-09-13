@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:opsz,wght@8..144,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1, h2, h3, h4, h5, h6{
+    color: $base_color;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+a {
+    color: $base_color;
+}
+
+a:hover {
+    color: $secondary_color;
+}
+
+.headerLinks
+{
+    font-family: "Roboto", sans-serif;
+}
+
+/* create class named konami that spins the site */
+.easterEgg {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+html
+{
+    font-family: "Roboto", sans-serif !important;
+}
+
+.ellipsis-multiline {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 5; /* Number of lines before ellipsis */
+    -webkit-line-clamp: 5; /* Number of lines before ellipsis */
+  }

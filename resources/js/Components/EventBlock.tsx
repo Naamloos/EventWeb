@@ -1,5 +1,5 @@
 import { Event } from "@/types/Event";
-import PlaceholderBanner from "@/../img/banner.jpg";
+import PlaceholderBanner from "@/../img/siteBanner.jpg";
 
 export default function EventBlock(event: Event) {
     const start = new Date(event.starts_at);

@@ -1,8 +1,8 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { EventsProps } from "@/types/props/EventsProps";
-import PlaceholderBanner from "@/../img/banner.jpg";
+import PlaceholderBanner from "@/../img/siteBanner.jpg";
 import { Head } from "@inertiajs/react";
-import Logo from "@/../img/ravelogo.png";
+import Logo from "@/../img/placeholderLogo.png";
 import EventBlock from "@/Components/EventBlock";
 
 export default function Events(props : EventsProps) {
@@ -26,11 +26,11 @@ export default function Events(props : EventsProps) {
                     backgroundImage: `url(${PlaceholderBanner})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    borderColor: "#6DC952",
+                    borderColor: import.meta.env.VITE_BASE_COLOR,
                 }}
             >
                 {/* do somnething fancy with the text */}
-                <img src={Logo} alt="Tanoshima" className="h-full xl:h-5/6"/>
+                <img src={Logo} alt="Logo" className="h-full xl:h-5/6"/>
             </div>
 
             <div className="text-center py-3">

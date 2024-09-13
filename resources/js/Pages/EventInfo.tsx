@@ -1,9 +1,9 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { EventInfoProps } from "@/types/props/EventInfoProps";
-import PlaceholderBanner from "@/../img/banner.jpg";
+import PlaceholderBanner from "@/../img/siteBanner.jpg";
 import TicketTailerEmbedder from "@/Components/TicketTailerEmbedder";
 import MapsEmbedComponent from "@/Components/MapsEmbedComponent";
-import Logo from "@/../img/ravelogo.png";
+import Logo from "@/../img/placeholderLogo.png";
 import { Head } from "@inertiajs/react";
 import MDEditor from "@uiw/react-md-editor";
 
@@ -57,10 +57,10 @@ export default function Events(props : EventInfoProps) {
                     backgroundImage: `url(${PlaceholderBanner})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    borderColor: "#6DC952",
+                    borderColor: import.meta.env.VITE_BASE_COLOR,
                 }}
             >
-                <img src={Logo} alt="Tanoshima" className="h-full xl:h-5/6"/>
+                <img src={Logo} alt="Logo" className="h-full xl:h-5/6"/>
             </div>
 
             {/* show event info, wider box, nicer box, use all properties */}

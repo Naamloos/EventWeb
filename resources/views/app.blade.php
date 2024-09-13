@@ -37,7 +37,7 @@
             <meta property="og:site_name" content="{{ config('app.name') }}" />
         @endif
 
-        <title inertia>{{ config('app.name', 'Tanoshima') }}</title>
+        <title inertia>{{ config('app.name', 'Eventweb') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

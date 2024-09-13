@@ -12,7 +12,7 @@ class CreateInvite extends Command
      *
      * @var string
      */
-    protected $signature = 'tanorave:invite {role}';
+    protected $signature = 'eventweb:invite {role}';
 
     /**
      * The console command description.

@@ -1,11 +1,11 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { ContactProps } from "@/types/props/ContactProps";
-import PlaceholderBanner from "@/../img/banner.jpg";
+import PlaceholderBanner from "@/../img/siteBanner.jpg";
 import { Head } from "@inertiajs/react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import Logo from "@/../img/ravelogo.png";
+import Logo from "@/../img/placeholderLogo.png";
 
 export default function Events(props : ContactProps) {
     library.add(fab);
@@ -19,11 +19,11 @@ export default function Events(props : ContactProps) {
                     backgroundImage: `url(${PlaceholderBanner})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    borderColor: "#6DC952",
+                    borderColor: import.meta.env.VITE_BASE_COLOR,
                 }}
             >
                 {/* do somnething fancy with the text */}
-                <img src={Logo} alt="Tanoshima" className="h-full xl:h-5/6"/>
+                <img src={Logo} alt="Logo" className="h-full xl:h-5/6"/>
             </div>
             {/* list every social from props.socials */}
             <div className="w-full text-center">

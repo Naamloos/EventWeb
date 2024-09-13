@@ -1,5 +1,5 @@
 import { PropsWithChildren, SVGAttributes } from 'react';
-import logo from "../../img/ravelogo.png"
+import logo from "../../img/placeholderLogo.png"
 
 export default function ApplicationLogo(props: any) {
     return (

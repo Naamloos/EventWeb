@@ -1,6 +1,6 @@
-# tanorave-web
+# Eventweb
 
-Website for Tanorave built with Laravel + Inertia.js (React)
+Generic website for hosting events built with Laravel + Inertia.js (React)
 
-## Why made public?
-Despite the drama surrounding tanorave and me stepping out it was still in my opinion a fairly well built platform. I'm opening up the source code for my portfolio.
+## Why?
+Originally built for a specific anime rave event, modified and adapted for general use

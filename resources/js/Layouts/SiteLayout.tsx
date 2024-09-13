@@ -54,7 +54,7 @@ export default function SiteLayout({children} : PropsWithChildren)
                         >
                             &copy;&nbsp;
                         </a>
-                        2024 Tanoshima Raves - Site by <a className="hover:text-opacity-50" href="https://naamloos.dev/">Ryan</a>
+                        2024 {import.meta.env.VITE_APP_NAME}
                     </p>
                 </footer>
             </div>
