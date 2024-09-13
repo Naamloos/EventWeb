@@ -25,4 +25,4 @@ Setup instructions are to be written soon™️
 Using my code and like it? Please consider leaving a tip for my hard work. This project started off as a favor but ended up potentially landing me in hot water for no reason. It would be much appreciated if this still ends up earning me some pocket money. [I have a ko-fi!](https://ko-fi.com/naamloos)
 
 ## Screenshots
-
+To be added soon™️
