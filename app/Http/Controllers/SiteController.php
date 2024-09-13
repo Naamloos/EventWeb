@@ -115,8 +115,8 @@ class SiteController extends Controller
 
         if(strpos($event->image, 'data:image') === false)
         {
-            // return image from resources/img/banner.jpg
-            return response(file_get_contents(resource_path('img/banner.jpg')))->header('Content-Type', 'image/png');
+            // return image from resources/img/placeholderBanner.jpg
+            return response(file_get_contents(resource_path('img/placeholderBanner.jpg')))->header('Content-Type', 'image/png');
         }
 
         // convert the base64 image url in $event->image to a that is returned
@@ -127,6 +127,6 @@ class SiteController extends Controller
 
     public function displayLogo(Request $request)
     {
-        return response(file_get_contents(resource_path('img/ravelogo4kant_transparant.png')))->header('Content-Type', 'image/png');
+        return response(file_get_contents(resource_path('img/placeholderLogo.png')))->header('Content-Type', 'image/png');
     }
 }

@@ -1,6 +1,6 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { EventsProps } from "@/types/props/EventsProps";
-import PlaceholderBanner from "@/../img/siteBanner.jpg";
+import PlaceholderBanner from "@/../img/placeholderBanner.jpg";
 import { Head } from "@inertiajs/react";
 import Logo from "@/../img/placeholderLogo.png";
 import EventBlock from "@/Components/EventBlock";

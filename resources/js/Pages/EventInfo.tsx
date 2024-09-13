@@ -1,6 +1,6 @@
 import SiteLayout from "@/Layouts/SiteLayout";
 import { EventInfoProps } from "@/types/props/EventInfoProps";
-import PlaceholderBanner from "@/../img/siteBanner.jpg";
+import PlaceholderBanner from "@/../img/placeholderBanner.jpg";
 import TicketTailerEmbedder from "@/Components/TicketTailerEmbedder";
 import MapsEmbedComponent from "@/Components/MapsEmbedComponent";
 import Logo from "@/../img/placeholderLogo.png";

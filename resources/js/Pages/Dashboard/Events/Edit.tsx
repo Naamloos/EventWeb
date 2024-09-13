@@ -3,7 +3,7 @@ import { Head, useForm } from '@inertiajs/react';
 import { EditEventProps } from '@/types/props/EditEventProps';
 import { useState } from 'react';
 import MDEditor, { commands } from '@uiw/react-md-editor';
-import PlaceholderImage from '../../../../img/placeholder-banner.jpg';
+import PlaceholderImage from '../../../../img/placeholderBanner.jpg';
 
 export default function Index({ event, auth }: EditEventProps) {
 
