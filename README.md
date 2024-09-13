@@ -17,6 +17,7 @@ EventWeb is a self-hosted web platform developed using Laravel and Inertia.js fo
 - Proper permission management and permissions for administrator actions, through roles
 - Full user management for higher administrators
 - Setting a favicon via the admin dashboard
+- Blog for miscellaneous event information
 
 ## Setup
 Setup instructions are to be written soon™️
